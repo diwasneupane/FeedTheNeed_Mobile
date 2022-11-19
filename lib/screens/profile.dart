@@ -3,6 +3,7 @@ import 'package:feedtheneed/repositories/user_repository.dart';
 import 'package:feedtheneed/screens/aboutus.dart';
 import 'package:feedtheneed/screens/donationpoint.dart';
 import 'package:feedtheneed/screens/helpandsupport.dart';
+import 'package:feedtheneed/screens/login.dart';
 import 'package:feedtheneed/screens/myaccount.dart';
 import 'package:feedtheneed/screens/update_profile.dart';
 import 'package:feedtheneed/utils/api_url.dart';
@@ -221,6 +222,50 @@ class _ProfileState extends State<Profile> {
                                     builder: (context) => const DonationPoint(),
                                   ),
                                 );
+                              },
+                              icon: const Icon(
+                                Icons.keyboard_arrow_right_outlined,
+                                color: Colors.blueGrey,
+                              ),
+                            ),
+                          ),
+                        ),
+                        InkWell(
+                          onTap: () async {
+                            SharedPreferences prefs =
+                                await SharedPreferences.getInstance();
+                            prefs.clear();
+                            Navigator.of(context).pushNamedAndRemoveUntil(
+                                '/login', (Route<dynamic> route) => false);
+                          },
+                          child: ListTile(
+                            leading: const CircleAvatar(
+                              radius: 30,
+                              backgroundColor: Colors.white,
+                              child: CircleAvatar(
+                                backgroundColor:
+                                    Color.fromARGB(255, 241, 250, 253),
+                                radius: 27,
+                                child: Icon(
+                                  Icons.logout_outlined,
+                                  color: Color(0xFF41A2CD),
+                                ),
+                              ),
+                            ),
+                            title: const Text(
+                              "Log out",
+                            ),
+                            subtitle: const Text(
+                                "Further secure your account for safety",
+                                style: TextStyle(
+                                    color: Colors.blueGrey, fontSize: 10)),
+                            trailing: IconButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const Login()),
+                                ); //action coe when button is pressed
                               },
                               icon: const Icon(
                                 Icons.keyboard_arrow_right_outlined,

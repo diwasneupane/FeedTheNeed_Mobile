@@ -54,7 +54,7 @@ class _BlogScreenState extends State<BlogScreen> {
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(30),
                                   borderSide: BorderSide.none),
-                              hintText: 'Search',
+                              hintText: 'SEARCH',
                               hintStyle: const TextStyle(
                                   color: Colors.grey, fontSize: 18),
                               prefixIcon: Container(

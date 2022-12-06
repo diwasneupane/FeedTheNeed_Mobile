@@ -223,7 +223,64 @@ class _BlogScreenState extends State<BlogScreen> {
                                                   ),
                                                 ),
                                               ),
-                                         
+                                              const SizedBox(width: 8),
+                                              Row(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  IconButton(
+                                                    onPressed: () {
+                                                      Navigator.of(context)
+                                                          .push(
+                                                        MaterialPageRoute(
+                                                            builder: (context) =>
+                                                                BlogDescription(
+                                                                    blogId:
+                                                                        blogid!)),
+                                                      );
+                                                      //action coe when button is pressed
+                                                    },
+                                                    icon: const Icon(
+                                                      Icons
+                                                          .arrow_forward_ios_outlined,
+                                                      color: Color(0xFF41A2CD),
+                                                      size: 16,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      )
+                                    : const SizedBox();
+                              },
+                            ),
+                          );
+                        } else {
+                          return const Center(
+                            child: Text("No data"),
+                          );
+                        }
+                      } else if (snapshot.connectionState ==
+                          ConnectionState.waiting) {
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      } else if (snapshot.hasError) {
+                        return Text("${snapshot.error}");
+                      } else {
+                        return const Center(
+                          child: CircularProgressIndicator(
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                                Color(0xff754A4A)),
+                          ),
+                        );
+                      }
+                    },
+                  ),
+                ],
+              ),
             ),
           ],
         ),

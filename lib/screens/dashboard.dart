@@ -105,7 +105,63 @@ class _DashboardState extends State<Dashboard> {
       "Unused": double.parse(unused.toString()),
     };
 
-    return 
+    return Scaffold(
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(bottom: 18.0),
+                child: CircleAvatar(
+                  radius: 60.0,
+                  backgroundColor: Colors.transparent,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(5.0),
+                    child: Image.asset('assets/images/logo.png'),
+                  ),
+                ),
+              ),
+              const Text(
+                "Total Donation",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                "$totalMoney",
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(
+                height: 50,
+              ),
+              PieChart(
+                dataMap: dataMap,
+                colorList: colorList,
+                chartRadius: MediaQuery.of(context).size.width / 1.9,
+                centerText: "Donation Status",
+                ringStrokeWidth: 24,
+                degreeOptions: const DegreeOptions(),
+                animationDuration: const Duration(seconds: 2),
+                chartValuesOptions: const ChartValuesOptions(
+                    showChartValues: true,
+                    showChartValuesOutside: false,
+                    showChartValuesInPercentage: true,
+                    showChartValueBackground: true),
+                legendOptions: const LegendOptions(
+                    showLegends: true,
+                    legendShape: BoxShape.rectangle,
+                    legendTextStyle: TextStyle(fontSize: 11),
+                    legendPosition: LegendPosition.bottom,
+                    showLegendsInRow: true),
+                chartType: ChartType.ring,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
               Padding(
                 padding: const EdgeInsets.only(left: 28.0, right: 28),
                 child: Container(

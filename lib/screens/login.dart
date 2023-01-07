@@ -94,7 +94,7 @@ class _LoginState extends State<Login> {
                   textAlign: TextAlign.left,
                   // keyboardType: TextInputType.text,
                   decoration: InputDecoration(
-                    hintText: 'Exapmle@gmail.com',
+                    hintText: 'Example@gmail.com',
                     hintStyle:
                         const TextStyle(fontSize: 16, color: Colors.grey),
                     border: OutlineInputBorder(

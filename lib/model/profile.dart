@@ -1,6 +1,6 @@
 // ignore: depend_on_referenced_packages
 import 'package:json_annotation/json_annotation.dart';
-part '../api/profile.g.dart';
+part 'profile.g.dart';
 
 //flutter pub run build_runner build
 @JsonSerializable()

@@ -28,7 +28,6 @@ class _OtpState extends State<Otp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       // backgroundColor: const Color(0xfff7f6fb),
       body: SingleChildScrollView(
         child: SafeArea(
@@ -141,10 +140,23 @@ class _OtpState extends State<Otp> {
                                   height: 20,
                                 ),
                                 TextFormField(
+                                  keyboardType: TextInputType.number,
                                   controller: _otpController,
-                                  decoration: const InputDecoration(
-                                    border: OutlineInputBorder(),
-                                    hintText: 'Enter a otp term',
+                                  decoration: InputDecoration(
+                                    hintText: 'Enter Your Otp Here',
+                                    hintStyle: const TextStyle(
+                                        fontSize: 16, color: Colors.grey),
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(50),
+                                      borderSide: const BorderSide(
+                                        width: 0,
+                                        style: BorderStyle.none,
+                                      ),
+                                    ),
+                                    filled: true,
+                                    fillColor: const Color.fromARGB(
+                                        255, 242, 241, 241),
+                                    contentPadding: const EdgeInsets.all(16),
                                   ),
                                 ),
                                 // Row(

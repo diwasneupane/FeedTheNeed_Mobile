@@ -54,7 +54,7 @@ class _BlogScreenState extends State<BlogScreen> {
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(30),
                                   borderSide: BorderSide.none),
-                              hintText: 'SEARCH',
+                              hintText: 'Search',
                               hintStyle: const TextStyle(
                                   color: Colors.grey, fontSize: 18),
                               prefixIcon: Container(
@@ -175,81 +175,94 @@ class _BlogScreenState extends State<BlogScreen> {
                                               ),
                                             ],
                                           ),
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              SizedBox(
-                                                height: 90,
-                                                width: 100,
-                                                child: ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          11.0),
-                                                  child: Image.network(
-                                                    "$baseUrl${lstblog[index]["blog_image"]!}",
-                                                    fit: BoxFit.cover,
-                                                  ),
-                                                ),
-                                              ),
-                                              const SizedBox(width: 18),
-                                              Expanded(
-                                                child: Container(
-                                                  child: Column(
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Text(
-                                                        lstblog[index]
-                                                            ["blog_name"],
-                                                        style: const TextStyle(
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                          fontSize: 16.0,
-                                                        ),
-                                                      ),
-                                                      const SizedBox(height: 4),
-                                                      Text(
-                                                        lstblog[index]
-                                                            ["blog_category"],
-                                                      )
-                                                    ],
-                                                  ),
-                                                ),
-                                              ),
-                                              const SizedBox(width: 8),
-                                              Row(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.center,
-                                                children: [
-                                                  IconButton(
-                                                    onPressed: () {
-                                                      Navigator.of(context)
-                                                          .push(
-                                                        MaterialPageRoute(
-                                                            builder: (context) =>
-                                                                BlogDescription(
-                                                                    blogId:
-                                                                        blogid!)),
-                                                      );
-                                                      //action coe when button is pressed
-                                                    },
-                                                    icon: const Icon(
-                                                      Icons
-                                                          .arrow_forward_ios_outlined,
-                                                      color: Color(0xFF41A2CD),
-                                                      size: 16,
+                                          child: InkWell(
+                                            onTap: () {
+                                              Navigator.of(context).push(
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        BlogDescription(
+                                                            blogId: blogid!)),
+                                              );
+                                            },
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              children: [
+                                                SizedBox(
+                                                  height: 90,
+                                                  width: 100,
+                                                  child: ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            11.0),
+                                                    child: Image.network(
+                                                      "$baseUrl${lstblog[index]["blog_image"]!}",
+                                                      fit: BoxFit.cover,
                                                     ),
                                                   ),
-                                                ],
-                                              ),
-                                            ],
+                                                ),
+                                                const SizedBox(width: 18),
+                                                Expanded(
+                                                  child: Container(
+                                                    child: Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Text(
+                                                          lstblog[index]
+                                                              ["blog_name"],
+                                                          style:
+                                                              const TextStyle(
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                            fontSize: 16.0,
+                                                          ),
+                                                        ),
+                                                        const SizedBox(
+                                                            height: 4),
+                                                        Text(
+                                                          lstblog[index]
+                                                              ["blog_category"],
+                                                        )
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                                const SizedBox(width: 8),
+                                                Row(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    IconButton(
+                                                      onPressed: () {
+                                                        Navigator.of(context)
+                                                            .push(
+                                                          MaterialPageRoute(
+                                                              builder: (context) =>
+                                                                  BlogDescription(
+                                                                      blogId:
+                                                                          blogid!)),
+                                                        );
+                                                        //action coe when button is pressed
+                                                      },
+                                                      icon: const Icon(
+                                                        Icons
+                                                            .arrow_forward_ios_outlined,
+                                                        color:
+                                                            Color(0xFF41A2CD),
+                                                        size: 16,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       )

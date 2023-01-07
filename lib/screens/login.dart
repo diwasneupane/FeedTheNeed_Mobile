@@ -150,32 +150,13 @@ class _LoginState extends State<Login> {
                     contentPadding: const EdgeInsets.all(16),
                   ),
                 ),
-                Wrap(
-                  direction: Axis.horizontal,
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  spacing: -15,
+                const SizedBox(
+                  height: 20,
+                ),
+                Row(
                   children: [
-                    Checkbox(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(2.0),
-                      ),
-                      activeColor: Colors.black,
-                      checkColor: Colors.white,
-                      //only check box
-                      value: check1, //unchecked
-                      onChanged: (bool? value) {
-                        //value returned when checkbox is clicked
-                        setState(() {
-                          check1 = value;
-                        });
-                      },
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.all(10),
-                      child: Text(
-                        "Remember me?",
-                        style: TextStyle(fontSize: 17, color: Colors.grey),
-                      ),
+                    const SizedBox(
+                      width: 150,
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 50),
@@ -197,7 +178,7 @@ class _LoginState extends State<Login> {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 30),
+                  padding: const EdgeInsets.only(top: 20),
                   child: SizedBox(
                     width: double.infinity,
                     height: 45,

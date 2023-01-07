@@ -18,6 +18,7 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  BuildContext? dcontext;
   UserProfile? user;
   @override
   void initState() {
@@ -231,12 +232,61 @@ class _ProfileState extends State<Profile> {
                           ),
                         ),
                         InkWell(
-                          onTap: () async {
-                            SharedPreferences prefs =
-                                await SharedPreferences.getInstance();
-                            prefs.clear();
-                            Navigator.of(context).pushNamedAndRemoveUntil(
-                                '/login', (Route<dynamic> route) => false);
+                          onTap: () {
+                            showDialog(
+                                context: context,
+                                builder: (context) {
+                                  dcontext = context;
+                                  return Center(
+                                    child: AlertDialog(
+                                      title: const Text(
+                                        'Warning',
+                                        textAlign: TextAlign.center,
+                                      ),
+                                      content: const Text(
+                                          'Are you sure you want to logout?'),
+                                      actions: <Widget>[
+                                        TextButton(
+                                          onPressed: () async {
+                                            {
+                                              SharedPreferences prefs =
+                                                  await SharedPreferences
+                                                      .getInstance();
+                                              prefs.clear();
+                                              Navigator.of(context)
+                                                  .pushNamedAndRemoveUntil(
+                                                      '/login',
+                                                      (Route<dynamic> route) =>
+                                                          false);
+                                            }
+
+                                            //action code for "Yes" button
+                                          },
+                                          child: const Text(
+                                            'Yes',
+                                            style: TextStyle(
+                                              color: Color(0xFF41A2CD),
+                                              fontSize: 18,
+                                            ),
+                                          ),
+                                        ),
+                                        TextButton(
+                                          onPressed: () {
+                                            Navigator.pop(
+                                                context); //close Dialog
+                                          },
+                                          child: const Text(
+                                            'No',
+                                            style: TextStyle(
+                                              color: Colors.red,
+                                              fontSize: 18,
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  );
+                                });
                           },
                           child: ListTile(
                             leading: const CircleAvatar(

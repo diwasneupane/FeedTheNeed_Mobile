@@ -65,7 +65,7 @@ class _BlogDescriptionState extends State<BlogDescription> {
                       SizedBox(
                         height: 80,
                         child: ListView.builder(
-                          itemCount: 3,
+                          itemCount: 1,
                           itemBuilder: (context, index) {
                             return Card(
                               shape: RoundedRectangleBorder(
@@ -99,7 +99,9 @@ class _BlogDescriptionState extends State<BlogDescription> {
                                   blog!.blog_category!,
                                   style: const TextStyle(color: Colors.black),
                                 ),
-                                trailing: const Text('2000'),
+                                trailing: Text(
+                                  blog!.blog_price!.toString(),
+                                ),
                               ),
                             );
                           },
